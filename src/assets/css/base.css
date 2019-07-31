@@ -1,0 +1,92 @@
+/* -- SETUP -- */
+
+* {
+	margin: 0; padding: 0;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	color: #555;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	height: 100%;
+}
+
+/* -- GENERAL TYPOGRAPHY -- */
+
+a, a:active {
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 1px solid #00458F;
+	color: #000;
+	cursor: pointer;
+	font-style: italic;
+	} a:hover {
+		border-bottom: 1px solid #00458F;
+	}
+
+h1,h2,h3,h4,h5,h6 { color: #444; margin: 0 0 20px 0; }
+
+h1      { font-size: 40px; }
+h2      { font-size: 32px; }
+h3      { font-size: 24px; }
+h4      { font-size: 21px; }
+h5      { font-size: 18px; }
+h6      { font-size: 18px; }
+
+p         { margin: 20px 0 20px 0; }
+
+ul,ol     { margin: 0 0 20px 28px; padding: 0; }
+dl        { margin: 0 0 20px 0; }
+dl dt     { font-weight: bold; color: #444; margin-bottom: 4px; }
+dl dd     { margin-bottom: 0px; margin-left: 24px; }
+@media (max-width: 768px) { dl dd { margin-left:0; } }
+
+pre,code  { font-size: 0.8em; line-height: 20px; font-family: 'Andale Mono', monospace; vertical-align: top}
+pre       { overflow: auto; margin: 0 0 20px 0; padding: 20px; border-radius: 6px; background: #eee; }
+code      { display: inline-block; white-space: nowrap; padding: 1px 6px; border-radius: 3px; background: #333; color:#fff;  }
+
+/* -- FORM -- */
+
+form    { margin: 0 0 20px 0; }
+fieldset { border: none; margin: 0 20px 0 0;}
+input {
+	width: 200px;
+	height: 36px;
+	background: #eee;
+	font-family: "Avenir Next", Trebuchet MS, Arial;
+	font-size: 0.9em;
+	color: #333;
+	text-indent: 20px;
+	border: none;
+	border-radius: 3px;
+	margin: 0 0 20px 0;
+}
+button {
+	width: 200px;
+	height: 36px;
+	background: #eee;
+	font-family: "Avenir Next", Trebuchet MS, Arial;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #333;
+	border: none;
+	border-radius: 3px;
+	margin: 0 0 20px 0;
+}
+
+/* -- LAYOUT -- */
+
+.hide {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.left   { float: left; }
+	.right  { float: right; }
+}
+.clear  { clear: both; }
