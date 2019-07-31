@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<masthead />
-		<searchbar v-on:update:inputTab="this.tab = inputTab" />
+		<searchbar v-on:newtab="updateTab" />
 		<br />in root scope: {{ tab }}
 	</div>
 </template>
@@ -18,6 +18,11 @@
 		}, 
 		data() {
 			return { tab: 'no input' }
+		},
+		methods: {
+			updateTab(inputTab) {
+				this.tab = inputTab;
+			}
 		}
 	}
 </script>
