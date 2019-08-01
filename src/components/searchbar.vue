@@ -2,7 +2,9 @@
 	<div>
 		<form onsubmit="return false;" id="main-form">
 			<fieldset>
-				<input id="inputTab" type="text" name="tab" v-model.lazy.trim="inputTab" placeholder="Insert tab here"
+				<input id="inputTab" type="text" name="tab" placeholder="Insert tab here"
+				:maxlength="inputLength" 
+				v-model.lazy.trim="inputTab"
 				v-on:change="findTab"
 				v-focus
 				/>
@@ -14,6 +16,7 @@
 <script>
 	export default {
 		name: 'searchbar',
+		props: ['inputLength'],
 		data() {
 			return { inputTab: '' }
 		}, 

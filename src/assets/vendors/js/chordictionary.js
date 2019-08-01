@@ -1,8 +1,8 @@
 /**Chordictionary v0.1.0-alpha.2, @license MIT, (c) 2016 Hubert Fauconnier + contributors*/
-(function (window) {
+
 	"use strict";
 	
-	function define() {
+
 
 /**
 * CONSTANTS––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -70,7 +70,7 @@
 * PUBLIC METHODS––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 * Theses methods can be called outside this lib.
 */
-		class Chordictionary {
+		export class Instrument {
 
 			/** Constructor class
 			* @param {String} tuning | Required | The instrument tuning
@@ -953,13 +953,3 @@
 				throw array + " is not an array.";
 			}
 		}
-
-		return Chordictionary;
-	}
-
-	if (typeof(Chordictionary) === "undefined") {
-		window.Chordictionary = define();
-	} else {
-		console.error("Chordictionary is already defined.");
-	}
-})(window);

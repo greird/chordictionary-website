@@ -1,9 +1,13 @@
 <template>
 	<div id="app">
 		<masthead />
-		<searchbar v-on:newtab="findTab" />
+		<searchbar 
+			v-on:newtab="findTab" 
+			v-bind:inputLength="this.tuning.length" 
+			/>
 		<p>{{ message }}</p>
-		<chordinfo
+		<chordinfo 
+			v-if="this.tab.length === this.tuning.length"
 			v-bind:chordName="chordName"
 			v-bind:chordTab="tab" 
 			v-bind:chordNotes="chordNotes"
@@ -27,21 +31,35 @@
 		}, 
 		data() {
 			return { 
-				message: '',
+				Chordictionary: require('./assets/vendors/js/chordictionary.js'), // load ChordictionaryJS lib
+				instrument: null,
 				tuning: 'EADGBE',
-				tab: 'X32010',
-				chordName: 'C',
-				chordNotes: 'xCEGCE',
-				chordFormulas: '1-3-5',
 				fretNumber: 24,
 				fretsToDisplay: 7,
-				maxSpan: 4 
+				maxSpan: 4,
+				message: '',
+				tab: '',
+				chordName: '',
+				chordNotes: '',
+				chordFormulas: ''
 			}
 		},
 		methods: {
 			findTab(inputTab) {
-				this.tab = inputTab;
+				let chordInfo = this.instrument.getChordInfo(inputTab);
+				if (chordInfo.error) {
+					this.message = chordInfo.error;
+				} else {
+					this.tab = inputTab;
+					this.chordName = chordInfo.name.join(', ');
+					this.chordNotes = chordInfo.notes;
+					this.chordFormulas = chordInfo.formula;
+					this.message = '';
+				}
 			}
+		},
+		created() {
+			this.instrument = new this.Chordictionary.Instrument('EADGBE', 24, 7, 4); // Define default instrument
 		}
 	}
 </script>
