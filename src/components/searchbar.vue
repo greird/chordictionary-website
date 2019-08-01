@@ -3,9 +3,9 @@
 		<form onsubmit="return false;" id="main-form">
 			<fieldset>
 				<input id="inputTab" type="text" name="tab" v-model.lazy.trim="inputTab" placeholder="Insert tab here"
-				v-on:change="updateTab"
+				v-on:change="findTab"
 				v-focus
-				required />
+				/>
 			</fieldset>
 		</form>
 	</div>
@@ -18,7 +18,7 @@
 			return { inputTab: '' }
 		}, 
 		methods: {
-			updateTab() {
+			findTab() {
 				this.$emit('newtab', this.inputTab);
 			}
 		},

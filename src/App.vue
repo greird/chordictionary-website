@@ -1,9 +1,9 @@
 <template>
 	<div id="app">
 		<masthead />
-		<searchbar v-on:newtab="updateTab" />
+		<searchbar v-on:newtab="findTab" />
+		<p>{{ message }}</p>
 		<chordinfo
-			v-bind:message="message"
 			v-bind:chordName="chordName"
 			v-bind:chordTab="tab" 
 			v-bind:chordNotes="chordNotes"
@@ -32,11 +32,14 @@
 				tab: 'X32010',
 				chordName: 'C',
 				chordNotes: 'xCEGCE',
-				chordFormulas: '1-3-5'
+				chordFormulas: '1-3-5',
+				fretNumber: 24,
+				fretsToDisplay: 7,
+				maxSpan: 4 
 			}
 		},
 		methods: {
-			updateTab(inputTab) {
+			findTab(inputTab) {
 				this.tab = inputTab;
 			}
 		}

@@ -2,9 +2,6 @@
 <dl>
 	<dt>Chord information</dt>
 	<dd>
-		{{ message }}
-	</dd>
-	<dd>
 		This is a
 		<code>{{ chordName }}</code>
 		chord and its tab notation is
@@ -27,7 +24,7 @@
 
 <script>
 	export default {
-		name: 'chordingo',
+		name: 'chordinfo',
 		props: ['message', 'chordName', 'chordTab', 'chordNotes', 'chordFormulas', 'chordTuning']
 	}
 </script>
