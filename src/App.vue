@@ -5,15 +5,15 @@
 			v-on:newtab="findTab" 
 			v-bind:inputLength="this.tuning.length" 
 			/>
-		<p>{{ message }}</p>
 		<chordinfo 
-			v-if="this.tab.length === this.tuning.length"
+			v-if="!message"
 			v-bind:chordName="chordName"
 			v-bind:chordTab="tab" 
 			v-bind:chordNotes="chordNotes"
 			v-bind:chordFormulas="chordFormulas"
 			v-bind:chordTuning="tuning"
 			/>
+		<p v-else>{{ message }}</p>
 	</div>
 </template>
 
@@ -46,15 +46,23 @@
 		},
 		methods: {
 			findTab(inputTab) {
-				let chordInfo = this.instrument.getChordInfo(inputTab);
-				if (chordInfo.error) {
-					this.message = chordInfo.error;
+				if (inputTab.length === this.tuning.length) {
+
+					let chordInfo = this.instrument.getChordInfo(inputTab);
+
+					if (chordInfo.error) {
+						this.message = chordInfo.error;
+						this.tab = '';
+
+					} else {
+						this.tab = inputTab;
+						this.chordName = chordInfo.name.join(', ');
+						this.chordNotes = chordInfo.notes;
+						this.chordFormulas = chordInfo.formula;
+						this.message = '';
+					}
 				} else {
-					this.tab = inputTab;
-					this.chordName = chordInfo.name.join(', ');
-					this.chordNotes = chordInfo.notes;
-					this.chordFormulas = chordInfo.formula;
-					this.message = '';
+					this.message = 'Invalid tab.';
 				}
 			}
 		},
