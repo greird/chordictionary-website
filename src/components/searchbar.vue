@@ -4,10 +4,10 @@
 			<fieldset>
 				<input id="inputTab" type="text" name="tab" v-model.lazy.trim="inputTab" placeholder="Insert tab here"
 				v-on:change="updateTab"
+				v-focus
 				required />
 			</fieldset>
 		</form>
-		<p>in searchbar scope: {{ inputTab }}</p>
 	</div>
 </template>
 
@@ -15,11 +15,19 @@
 	export default {
 		name: 'searchbar',
 		data() {
-			return { inputTab: 'X32010' }
+			return { inputTab: '' }
 		}, 
 		methods: {
 			updateTab() {
 				this.$emit('newtab', this.inputTab);
+			}
+		},
+		directives: {
+			focus: {
+				// directive definition
+				inserted: function (el) {
+					el.focus()
+				}
 			}
 		}
 	}
