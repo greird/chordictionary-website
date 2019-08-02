@@ -1,6 +1,6 @@
 #app {
 	max-width: 900px;
-	margin: 5em auto;
+	margin: 0 auto;
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -12,7 +12,7 @@ code    { background: #00458F; }
 
 
 div.masthead {
-	margin-bottom: 5em;
+	padding: 4em 0;
 } 
 div.masthead h1 {
 	color: #00458F;
