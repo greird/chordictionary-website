@@ -8,6 +8,8 @@ ChordictionaryJS is available here: https://github.com/greird/chordictionaryjs
 
 **Please note this is work in progress and it is not 100% reliable yet.**
 
+![](https://www.chordictionary.com/chordictionary-website.png "")
+
 ## Project setup
 
 ```
