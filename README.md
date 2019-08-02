@@ -1,7 +1,7 @@
 Chordictionary - demo website
 ======
 
-This is just the demo website for ChordictionaryJS, a web-based dynamic chord recognition and generation for any fretted instrument.
+This is just the demo website for ChordictionaryJS, a web-based dynamic chord recognition and generation library for any fretted instrument.
 It converts common chord tab notation, such as `x32010`, into its graphical representation, recognizes the chord and returns its real name and composition.
 
 ChordictionaryJS is available here: https://github.com/greird/chordictionaryjs
