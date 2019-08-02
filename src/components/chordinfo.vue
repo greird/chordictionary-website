@@ -1,6 +1,6 @@
 <template>
-<dl>
-	<dt>Chord information</dt>
+<dl id="chordinfo">
+	<dt></dt>
 	<dd>
 		This is a
 		<code>{{ chordName }}</code>

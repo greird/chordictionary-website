@@ -26,12 +26,23 @@ input#inputTab, input#inputTuning {
 	margin: 0 5px;
 }
 
+#results {
+	margin: 50px auto;
+	width: 550px;
+}
+
 #chord-layout {
-	margin: 0 40px 20px 0;
+	float: left;
 	min-height: 100px;
 }
 @media (max-width: 768px) {
 	#chord-layout { width: 140px; left: 50%; margin-left: -70px; }
+}
+
+#chordinfo {
+	float: right;
+	margin: 20px 0;
+	text-align: left;
 }
 
 
