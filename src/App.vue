@@ -45,7 +45,7 @@
 			return { 
 				Chordictionary: require('./assets/vendors/js/chordictionary.js'), // load ChordictionaryJS lib
 				instrument: null,
-				message: '',
+				message: 'Search for a tab (e.g. "X32010") and change the tuning of your instrument if needed.',
 				tuning: '',
 				tab: '',
 				chordName: '',
