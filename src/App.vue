@@ -2,18 +2,18 @@
 	<div id="app">
 		<masthead />
 		<searchbar 
-			v-on:newtab="findTab" 
-			v-bind:inputLength="this.tuning.length" 
-			/>
+		v-on:newtab="findTab" 
+		v-bind:inputLength="tuning.length > 0 ? tuning.length : 6" 
+		/>
 		<chordinfo 
-			v-if="!message"
-			v-bind:chordName="chordName"
-			v-bind:chordTab="tab" 
-			v-bind:chordNotes="chordNotes"
-			v-bind:chordFormulas="chordFormulas"
-			v-bind:chordTuning="tuning"
-			/>
-		<p v-else>{{ message }}</p>
+		v-if="chordName && !message"
+		v-bind:chordName="chordName"
+		v-bind:chordTab="tab" 
+		v-bind:chordNotes="chordNotes"
+		v-bind:chordFormulas="chordFormulas"
+		v-bind:chordTuning="tuning"
+		/>
+		<p v-if="message">{{ message }}</p>
 	</div>
 </template>
 
@@ -33,11 +33,8 @@
 			return { 
 				Chordictionary: require('./assets/vendors/js/chordictionary.js'), // load ChordictionaryJS lib
 				instrument: null,
-				tuning: 'EADGBE',
-				fretNumber: 24,
-				fretsToDisplay: 7,
-				maxSpan: 4,
 				message: '',
+				tuning: '',
 				tab: '',
 				chordName: '',
 				chordNotes: '',
@@ -45,29 +42,38 @@
 			}
 		},
 		methods: {
-			findTab(inputTab) {
-				if (inputTab.length === this.tuning.length) {
+			findTab(inputTab, inputTuning) {
+				// Create new instrument
+				try {
+					this.instrument = new this.Chordictionary.Instrument(inputTuning, 24, 7, 4);
+					this.tuning = this.instrument.tuning.join('')
+				} catch (e) {
+					this.message = 'Woops, check your tuning, you sound a bit out of tune!';
+				}
 
-					let chordInfo = this.instrument.getChordInfo(inputTab);
+				// Search for the tab in Chordictionary
+				try {
+					this.tab = inputTab;
 
-					if (chordInfo.error) {
-						this.message = chordInfo.error;
-						this.tab = '';
+					if (this.tab.length === this.tuning.length) {
 
+						let chordInfo = this.instrument.getChordInfo(this.tab);
+
+						if (chordInfo.error) {
+							this.message = chordInfo.error;
+						} else {
+							this.chordName = chordInfo.name.join(', ');
+							this.chordNotes = chordInfo.notes;
+							this.chordFormulas = chordInfo.formula;
+							this.message = '';
+						}
 					} else {
-						this.tab = inputTab;
-						this.chordName = chordInfo.name.join(', ');
-						this.chordNotes = chordInfo.notes;
-						this.chordFormulas = chordInfo.formula;
-						this.message = '';
+						this.message = 'The tab length should be the same as the tuning.';
 					}
-				} else {
-					this.message = 'Invalid tab.';
+				} catch (e) {
+					console.log(e);
 				}
 			}
-		},
-		created() {
-			this.instrument = new this.Chordictionary.Instrument('EADGBE', 24, 7, 4); // Define default instrument
 		}
 	}
 </script>

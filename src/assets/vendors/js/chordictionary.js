@@ -11,7 +11,7 @@
 		/**
 		* @const {Object} | Wordings (mostly displayed on error)
 		*/
-		const WORDING = {
+		export const WORDING = {
 			croppedChordLayout: "Number of frets does not allow full display of the chord.",
 			failedToConvertTabIntoNotes: "Could not convert the tab into notes.",
 			failedToCalculateFormula: "Could not calculate the formulas.",

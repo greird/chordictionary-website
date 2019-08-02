@@ -8,6 +8,19 @@
 				v-on:change="findTab"
 				v-focus
 				/>
+
+				<input id="inputTuning" type="text" list="tunings" name="tuning" placeholder="EADGBE"
+				v-model.lazy.trim="inputTuning" 
+				v-on:change="findTab"
+				/>
+				<datalist id="tunings">
+					<option value="EADGBE" label="Guitar Standard" />
+					<option value="DADGAD" label="Guitar D Modal" />
+					<option value="GGDGBD" label="Guitar Open G" />
+					<option value="EADG" label="Bass" />
+					<option value="GCEA" label="Ukulele" />
+					<option value="GDAE" label="Violin" />
+				</datalist>
 			</fieldset>
 		</form>
 	</div>
@@ -18,11 +31,15 @@
 		name: 'searchbar',
 		props: ['inputLength'],
 		data() {
-			return { inputTab: '' }
+			return { 
+				inputTab: '',
+				inputTuning: ''
+			}
 		}, 
 		methods: {
 			findTab() {
-				this.$emit('newtab', this.inputTab);
+				if (!this.inputTuning) this.inputTuning = 'EADGBE';
+				this.$emit('newtab', this.inputTab, this.inputTuning);
 			}
 		},
 		directives: {

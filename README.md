@@ -1,8 +1,12 @@
-# Vue.js template
+Chordictionary - demo website
+======
+
+Web-based dynamic chord recognition and generation for any fretted instrument.
+It converts common chord tab notation, such as `x32010`, into its graphical representation, recognizes the chord and returns its real name and composition.
+
+**Please note this is work in progress and it is not 100% reliable yet.**
 
 ## Project setup
-
-Rename any instance of `vuejs-template` to your new repo name (in `vue.config.js`, `package.json`, `package-lock.json` and `deploy.sh`).
 
 ```
 npm install
@@ -18,11 +22,6 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
 ### Lints and fixes files
 ```
 npm run lint
@@ -32,6 +31,3 @@ npm run lint
 ```
 bash deploy.sh
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

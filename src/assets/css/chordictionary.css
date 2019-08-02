@@ -18,11 +18,12 @@ div.masthead h1 {
 	color: #00458F;
 }  
 
-input#inputTab {
+input#inputTab, input#inputTuning {
 	text-align: center;
 	font-size: 2em;
 	width: 10em;
 	height: 2em;
+	margin: 0 5px;
 }
 
 #chord-layout {
