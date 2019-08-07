@@ -18,7 +18,7 @@
             <p>By keeping only the ones with a "basic" or "bar" tag, we are able to visualize the most common chord placements.</p>
 
             <div id="chord" style="margin-right: 20px;float:left;" 
-                v-for="chord in commonChords" v-bind:key="index">
+                v-for="(chord, index) in commonChords" v-bind:key="index">
                 <div v-html='chord'></div>
             </div>
             <div style="clear:both; height:20px;"></div>
