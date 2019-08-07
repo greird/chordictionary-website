@@ -1,30 +1,41 @@
 <template>
 	<div id="app">
 
-		<masthead />
+		<section class="slide introduction">
+			<nav>
+				<a href="#documentation">Documentation</a>
+				<a href="https://github.com/greird/chordictionaryjs" class="right">Sources</a>
+			</nav>
 
-		<searchbar 
-		v-on:newtab="findTab" 
-		v-bind:inputLength="tuning.length > 0 ? tuning.length : 6" 
-		/>
+			<masthead />
 
-		<p v-if="message">{{ message }}</p>
-		
-		<div id="results" v-else>
-			<div id="chord-layout" class="chord-small"
-			v-if="chordLayout"
-			v-html="chordLayout"></div>
-
-			<chordinfo 
-			v-if="chordName && !message"
-			v-bind:chordName="chordName"
-			v-bind:chordTab="tab" 
-			v-bind:chordNotes="chordNotes"
-			v-bind:chordFormulas="chordFormulas"
-			v-bind:chordTuning="tuning"
+			<searchbar 
+			v-on:newtab="findTab" 
+			v-bind:inputLength="tuning.length > 0 ? tuning.length : 6" 
 			/>
-			<div class="clear"></div>
-		</div>
+
+			<p v-if="message">{{ message }}</p>
+
+			<div id="results" v-else>
+				<div id="chord-layout" class="chord-small"
+				v-if="chordLayout"
+				v-html="chordLayout"></div>
+
+				<chordinfo 
+				v-if="chordName && !message"
+				v-bind:chordName="chordName"
+				v-bind:chordTab="tab" 
+				v-bind:chordNotes="chordNotes"
+				v-bind:chordFormulas="chordFormulas"
+				v-bind:chordTuning="tuning"
+				/>
+				<div class="clear"></div>
+			</div>
+		</section>
+
+		<section class="slide" id="documentation" style="background-color: #FFF;">
+			<documentation v-bind:Chordictionary="Chordictionary" />
+		</section>
 
 	</div>
 </template>
@@ -33,13 +44,15 @@
 	import masthead from './components/masthead.vue'
 	import searchbar from './components/searchbar.vue'
 	import chordinfo from './components/chordinfo.vue'
+	import documentation from './components/documentation.vue'
 
 	export default {
 		name: 'app',
 		components: {
 			masthead,
 			searchbar,
-			chordinfo
+			chordinfo,
+			documentation
 		}, 
 		data() {
 			return { 

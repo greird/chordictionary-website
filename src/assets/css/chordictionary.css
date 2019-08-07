@@ -1,15 +1,35 @@
 #app {
-	max-width: 900px;
-	margin: 0 auto;
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
 	color: #2c3e50;
 }
+section.slide {
+	background-color: #FAFAFA;
+	padding: 50px;
+}
+section.introduction {
+	text-align: center;
+}
 
-code    { background: #00458F; }
-
+nav {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 1em 1.5em;
+	background-color: #FAFAFA;
+	z-index: 100;
+	text-align: left;
+} nav a, nav a:hover {
+	border: 0;
+	text-decoration: none;
+	font-size: 0.8em;
+	font-weight: bold;
+	font-style: normal;
+	padding-right: 2em;
+}
 
 div.masthead {
 	padding: 4em 0;
@@ -17,6 +37,10 @@ div.masthead {
 div.masthead h1 {
 	color: #00458F;
 }  
+
+h2 {
+	margin-top: 1.5em;
+}
 
 input#inputTab, input#inputTuning {
 	text-align: center;
@@ -35,9 +59,6 @@ input#inputTab, input#inputTuning {
 	float: left;
 	min-height: 100px;
 }
-@media (max-width: 768px) {
-	#chord-layout { width: 140px; left: 50%; margin-left: -70px; }
-}
 
 #chordinfo {
 	float: right;
@@ -45,37 +66,7 @@ input#inputTab, input#inputTuning {
 	text-align: left;
 }
 
-
 button#btn-more {
 	width: 100%;
 	cursor: pointer;
-}
-
-@media (max-width: 768px) {
-	#main-form {
-		width: 100%;
-	}
-	#main-form label {
-		display: none;
-	}
-	#main-form input {
-		height: 80px;
-		z-index: 100;
-		position: fixed;
-		border-radius: 0;
-		text-align: center;
-		font-size: 1em;
-		margin: 0;
-		bottom: 0;
-	}
-	#main-form input#inputTuning {
-		border-right: 1px solid #fff;
-		width: 50%;
-		left:0;
-	}
-	#main-form input#inputTab {
-		border-left: 1px solid #fff;
-		width: 50%;
-		left:50%;
-	}
 }

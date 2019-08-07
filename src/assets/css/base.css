@@ -45,7 +45,7 @@ dl dt     { font-weight: bold; color: #444; margin-bottom: 4px; }
 dl dd     { margin-bottom: 5px; margin-left: 24px; }
 @media (max-width: 768px) { dl dd { margin-left:0; } }
 
-pre,code  { font-size: 0.8em; line-height: 20px; font-family: 'Andale Mono', monospace; vertical-align: top}
+pre,code  { font-size: 0.8em; line-height: 20px; font-family: 'Andale Mono', monospace; vertical-align: top;}
 pre       { overflow: auto; margin: 0 0 20px 0; padding: 20px; border-radius: 6px; background: #eee; }
 code      { display: inline-block; white-space: nowrap; padding: 1px 6px; border-radius: 3px; background: #333; color:#fff;  }
 
