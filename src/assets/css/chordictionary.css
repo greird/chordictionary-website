@@ -20,7 +20,7 @@ nav {
 	width: 100%;
 	padding: 1em 1.5em;
 	background-color: #FAFAFA;
-	z-index: 100;
+	z-index: 1000;
 	text-align: left;
 } nav a, nav a:hover {
 	border: 0;

@@ -1,5 +1,14 @@
 @media (max-width: 768px) {
 
+	#app {
+		overflow: hidden;
+	}
+
+	section.slide {
+		background-color: #FAFAFA;
+		padding: 1em;
+	}
+
 	input#inputTab, input#inputTuning {
 		text-align: center;
 		font-size: 2em;
