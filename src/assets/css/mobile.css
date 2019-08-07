@@ -1,34 +1,26 @@
 @media (max-width: 768px) {
-	#chord-layout { 
-		width: 140px; 
-		left: 50%; 
-		margin-left: -70px; 
+
+	input#inputTab, input#inputTuning {
+		text-align: center;
+		font-size: 2em;
+		width: 10em;
+		height: 2em;
+		margin: 5px;
 	}
 
-	#main-form {
-		width: 100%;
+	#results {
+		margin: 50px auto;
+		width: auto;
 	}
-	#main-form label {
-		display: none;
+
+	#chord-layout {;
+		float: none;
+		min-height: 100px;
 	}
-	#main-form input {
-		height: 80px;
-		z-index: 100;
-		position: fixed;
-		border-radius: 0;
-		text-align: center;
-		font-size: 1em;
-		margin: 0;
-		bottom: 0;
-	}
-	#main-form input#inputTuning {
-		border-right: 1px solid #fff;
-		width: 50%;
-		left:0;
-	}
-	#main-form input#inputTab {
-		border-left: 1px solid #fff;
-		width: 50%;
-		left:50%;
+
+	#chordinfo {
+		float: none;
+		margin: 20px 0;
+		text-align: left;
 	}
 }
