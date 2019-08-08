@@ -30,13 +30,16 @@ nav {
 	padding-right: 2em;
 }
 
-div.masthead {
+.masthead {
 	margin-top: 10%;
 	padding: 4em 0;
 } 
-div.masthead h1 {
+.masthead h1 {
 	color: #00458F;
 }  
+.masthead h2 {
+	font-weight: normal;
+}
 
 h2, h3 {
 	margin-top: 1.5em;
