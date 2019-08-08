@@ -7,11 +7,11 @@
 
             <h2>II. Chord recognition</h2>
             <code>guitar.getChordInfo('131211')</code><br /><br />
-            <pre>{{ demo_guitar.getChordInfo('131211') }}</pre>
+            <pre>{{ chordInfo }}</pre>
 
             <h2>III. Chord generation</h2>
             <code>guitar.getChordsList("G");</code><br /><br />
-            <p>{{ chordGeneration.chordList.length }} chords found.</p>
+            <p>{{ numberOfChordsFound }} chords found.</p>
             <pre style="height: 400px">{{ chordGeneration }}</pre>
 
             <h4>Most common placements for these chords</h4>
@@ -27,16 +27,16 @@
 
             <h3>Tab notation validation</h3>
             <code>guitar.isValidTab("x32010")</code><br /><br />
-            <pre>{{ demo_guitar.isValidTab("x32010") }}</pre>
+            <pre>{{ tabValidation }}</pre>
 
             <h3>Tuning notation validation</h3>
             <code>guitar.isValidTuning("E#A#D#G#B#E#")</code><br /><br />
-            <pre>{{ demo_guitar.isValidTuning('E#A#D#G#B#E#') }}</pre>
+            <pre>{{ tuningValidation }}</pre>
  
             <h3>Graphical tab representation</h3>
             <code>guitar.getChordLayout("C", "x32010")</code><br /><br />
             <div id="chord" style="margin-right: 20px;float:left;">
-                <div v-html='demo_guitar.getChordLayout("C", "x32010")'></div>
+                <div v-html='chordLayout'></div>
             </div>
             <div style="clear:both;"></div>
 
@@ -51,12 +51,22 @@
             return {
                 demo_guitar: '',
                 chordGeneration: '',
+                chordInfo: '',
+                numberOfChordsFound: '',
+                tabValidation: '',
+                tuningValidation: '',
+                chordLayout: '',
                 commonChords: [],
             }
         },
         mounted() {
             this.demo_guitar = new this.Chordictionary.Instrument('EADGBE', 24, 5, 4);
             this.chordGeneration = this.demo_guitar.getChordsList("G");
+            this.chordInfo = this.demo_guitar.getChordInfo('131211');
+            this.numberOfChordsFound = this.chordGeneration.chordList.length;
+            this.tabValidation = this.demo_guitar.isValidTab("x32010");
+            this.tuningValidation = this.demo_guitar.isValidTuning('E#A#D#G#B#E#');
+            this.chordLayout = this.demo_guitar.getChordLayout("C", "x32010");
 
             for (var i in this.chordGeneration.chordList) {
               var tagList = "";
