@@ -5,11 +5,10 @@
 	}
 
 	section.slide {
-		background-color: #FAFAFA;
 		padding: 1em;
 	}
 
-	input#inputTab, input#inputTuning {
+	input#inputTab, input#inputChord, input#inputTuning {
 		text-align: center;
 		font-size: 2em;
 		width: 10em;
@@ -17,13 +16,12 @@
 		margin: 5px;
 	}
 
-	#results {
+	.results {
 		margin: 50px auto;
 		width: auto;
 	}
 
-	#chord-layout {;
-		float: none;
+	.chord-layout {
 		min-height: 100px;
 	}
 
