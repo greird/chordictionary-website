@@ -8,7 +8,7 @@ section.slide {
 	background-color: #FAFAFA;
 	padding: 50px;
 }
-section.introduction {
+section#introduction {
 	text-align: center;
 }
 
@@ -19,7 +19,7 @@ nav {
 	left: 0;
 	width: 100%;
 	padding: 1em 1.5em;
-	background-color: #FAFAFA;
+	background-color: #F3F3F3;
 	z-index: 1000;
 	text-align: left;
 } nav a, nav a:hover {
@@ -42,7 +42,7 @@ h2 {
 	margin-top: 1.5em;
 }
 
-input#inputTab, input#inputTuning {
+input#inputTab, input#inputChord, input#inputTuning {
 	text-align: center;
 	font-size: 2em;
 	width: 10em;

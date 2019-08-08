@@ -1,17 +1,18 @@
 <template>
 	<div id="app">
 
-		<section class="slide introduction">
-			<nav>
-				<a href="#documentation">Documentation</a>
-				<a href="https://github.com/greird/chordictionaryjs" class="right">Sources</a>
-			</nav>
+		<nav>
+			<a href="#introduction">Find a Chord</a>
+			<a href="#documentation">Library documentation</a>
+			<a href="https://github.com/greird/chordictionaryjs" class="right">Sources</a>
+		</nav>
 
+		<section class="slide" id="introduction">
 			<masthead />
 
-			<searchbar 
+			<searchform 
+			v-bind:showTabInput='1'
 			v-on:newtab="findTab" 
-			v-bind:inputLength="tuning.length > 0 ? tuning.length : 6" 
 			/>
 
 			<p v-if="message">{{ message }}</p>
@@ -33,7 +34,7 @@
 			</div>
 		</section>
 
-		<section class="slide" id="documentation" style="background-color: #FFF;">
+		<section class="slide" id="documentation">
 			<documentation v-bind:Chordictionary="Chordictionary" />
 		</section>
 
@@ -42,7 +43,7 @@
 
 <script>
 	import masthead from './components/masthead.vue'
-	import searchbar from './components/searchbar.vue'
+	import searchform from './components/searchform.vue'
 	import chordinfo from './components/chordinfo.vue'
 	import documentation from './components/documentation.vue'
 
@@ -50,8 +51,8 @@
 		name: 'app',
 		components: {
 			masthead,
-			searchbar,
 			chordinfo,
+			searchform,
 			documentation
 		}, 
 		data() {
