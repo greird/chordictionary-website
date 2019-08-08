@@ -5,10 +5,9 @@
 	color: #2c3e50;
 }
 section.slide {
-	background-color: #FAFAFA;
 	padding: 50px;
 }
-section#introduction {
+section#introduction, section#tabsearch, section#chordsearch {
 	text-align: center;
 }
 
@@ -32,13 +31,14 @@ nav {
 }
 
 div.masthead {
+	margin-top: 10%;
 	padding: 4em 0;
 } 
 div.masthead h1 {
 	color: #00458F;
 }  
 
-h2 {
+h2, h3 {
 	margin-top: 1.5em;
 }
 
@@ -50,18 +50,19 @@ input#inputTab, input#inputChord, input#inputTuning {
 	margin: 0 5px;
 }
 
-#results {
+.results {
 	margin: 50px auto;
-	width: 550px;
+	width: 600px;
 }
 
-#chord-layout {
+.chord-layout {
 	float: left;
+	padding: 5px 10px 5px 0;
 	min-height: 100px;
 }
 
 #chordinfo {
-	float: right;
+	float: left;
 	margin: 20px 0;
 	text-align: left;
 }
@@ -69,4 +70,24 @@ input#inputTab, input#inputChord, input#inputTuning {
 button#btn-more {
 	width: 100%;
 	cursor: pointer;
+}
+
+.arrow-down {
+  display: block;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  background-image: url("../img/down_arrow_black.svg");
+  background-size: contain;
+  opacity: 0.3;
+}
+
+.white {
+	background-color: #FFFFFF;
+}
+.grey {
+	background-color: #FAFAFA;
 }

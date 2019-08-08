@@ -2,108 +2,41 @@
 	<div id="app">
 
 		<nav>
-			<a href="#introduction">Find a Chord</a>
+			<a href="#tabsearch">Search by tab</a>
+			<a href="#chordsearch">Search by name</a>
 			<a href="#documentation">Library documentation</a>
 			<a href="https://github.com/greird/chordictionaryjs" class="right">Sources</a>
 		</nav>
 
-		<section class="slide" id="introduction">
-			<masthead />
+		<masthead />
 
-			<searchform 
-			v-bind:showTabInput='1'
-			v-on:newtab="findTab" 
-			/>
+		<tabsearch v-bind:Chordictionary="Chordictionary" />
 
-			<p v-if="message">{{ message }}</p>
+		<chordsearch v-bind:Chordictionary="Chordictionary" />
 
-			<div id="results" v-else>
-				<div id="chord-layout" class="chord-small"
-				v-if="chordLayout"
-				v-html="chordLayout"></div>
-
-				<chordinfo 
-				v-if="chordName && !message"
-				v-bind:chordName="chordName"
-				v-bind:chordTab="tab" 
-				v-bind:chordNotes="chordNotes"
-				v-bind:chordFormulas="chordFormulas"
-				v-bind:chordTuning="tuning"
-				/>
-				<div class="clear"></div>
-			</div>
-		</section>
-
-		<section class="slide" id="documentation">
-			<documentation v-bind:Chordictionary="Chordictionary" />
-		</section>
+		<documentation v-bind:Chordictionary="Chordictionary" />
 
 	</div>
 </template>
 
 <script>
 	import masthead from './components/masthead.vue'
-	import searchform from './components/searchform.vue'
-	import chordinfo from './components/chordinfo.vue'
+	import tabsearch from './components/tabsearch.vue'
+	import chordsearch from './components/chordsearch.vue'
 	import documentation from './components/documentation.vue'
 
 	export default {
 		name: 'app',
 		components: {
 			masthead,
-			chordinfo,
-			searchform,
+			tabsearch,
+			chordsearch,
 			documentation
 		}, 
 		data() {
 			return { 
 				Chordictionary: require('./assets/vendors/js/chordictionary.js'), // load ChordictionaryJS lib
-				instrument: null,
-				message: 'Search for a tab (e.g. "X32010") and change the tuning of your instrument if needed.',
-				tuning: '',
-				tab: '',
-				chordName: '',
-				chordNotes: '',
-				chordFormulas: '',
-				chordLayout: ''
 			}
 		},
-		methods: {
-			findTab(inputTab, inputTuning) {
-				// Create new instrument
-				try {
-					this.instrument = new this.Chordictionary.Instrument(inputTuning, 24, 5, 4);
-					this.tuning = this.instrument.tuning.join('')
-				} catch (e) {
-					this.message = 'Woops, check your tuning, you sound a bit out of tune!';
-				}
-
-				// Search for the tab in Chordictionary
-				try {
-					this.tab = inputTab;
-
-					if (this.tab.length === this.tuning.length) {
-
-						let chordInfo = this.instrument.getChordInfo(this.tab);
-
-						if (chordInfo.error) {
-							this.message = chordInfo.error;
-							this.chordName = '';
-						} else {
-							this.chordName = chordInfo.name.join(', ');
-							this.chordNotes = chordInfo.notes;
-							this.chordFormulas = chordInfo.formula;
-							this.message = '';
-						}
-
-						this.chordLayout = this.instrument.getChordLayout(this.chordName, this.tab, this.tuning);
-					} else {
-						this.message = 'The tab length should be the same as the tuning.';
-					}
-				} catch (e) {
-					// Do nothing
-				}
-			}
-		}
 	}
 </script>

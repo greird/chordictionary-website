@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <h1>Documentation</h1>
-            <h2>I. Instrument definition</h2>
+    <section class="slide white" id="documentation">
+        <h2>Javascript library</h2>
+            <p>This website is powered by the ChordictionaryJS library, available on <a href="https://github.com/greird/chordictionaryjs">Github</a>.</p>
+            <h3>I. Instrument definition</h3>
             <code>var guitar = new Chordictionary('EADGBE', 24, 5, 4);</code><br /><br />
             <pre>{{ demo_guitar }}</pre>
 
-            <h2>II. Chord recognition</h2>
+            <h3>II. Chord recognition</h3>
             <code>guitar.getChordInfo('131211')</code><br /><br />
             <pre>{{ chordInfo }}</pre>
 
-            <h2>III. Chord generation</h2>
+            <h3>III. Chord generation</h3>
             <code>guitar.getChordsList("G");</code><br /><br />
             <p>{{ numberOfChordsFound }} chords found.</p>
             <pre style="height: 400px">{{ chordGeneration }}</pre>
@@ -23,24 +24,24 @@
             </div>
             <div style="clear:both; height:20px;"></div>
 
-            <h2>IV. Tools</h2>
+            <h3>IV. Tools</h3>
 
-            <h3>Tab notation validation</h3>
+            <h4>Tab notation validation</h4>
             <code>guitar.isValidTab("x32010")</code><br /><br />
             <pre>{{ tabValidation }}</pre>
 
-            <h3>Tuning notation validation</h3>
+            <h4>Tuning notation validation</h4>
             <code>guitar.isValidTuning("E#A#D#G#B#E#")</code><br /><br />
             <pre>{{ tuningValidation }}</pre>
  
-            <h3>Graphical tab representation</h3>
+            <h4>Graphical tab representation</h4>
             <code>guitar.getChordLayout("C", "x32010")</code><br /><br />
             <div id="chord" style="margin-right: 20px;float:left;">
                 <div v-html='chordLayout'></div>
             </div>
             <div style="clear:both;"></div>
 
-    </div>
+    </section>
 </template>
 
 <script>
