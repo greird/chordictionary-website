@@ -18,7 +18,7 @@
 				v-html="instrument.getChordLayout(chord.tag.join(', '), chord.tab.join(''))">
 			</div><div class="clear"></div>
 
-			<br /><button v-on:click="simpleChordsOnly = simpleChordsOnly ? false : true;">Show/Hide complex</button>
+			<br /><button v-on:click="simpleChordsOnly = simpleChordsOnly ? false : true;">Toggle complex chords</button>
 
 			<div v-if="!simpleChordsOnly">
 				<div class="chord-layout chord-small"

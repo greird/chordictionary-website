@@ -4,6 +4,10 @@
 		overflow: hidden;
 	}
 
+	nav a {
+		margin: 0 0 0 1em;
+	}
+
 	section.slide {
 		padding: 1em;
 	}
@@ -29,5 +33,10 @@
 		float: none;
 		margin: 20px 0;
 		text-align: left;
+	}
+
+	.web-only {
+		display: none;
+		visibility: hidden;
 	}
 }

@@ -4,8 +4,8 @@
 		<nav>
 			<a href="#tabsearch">Search by tab</a>
 			<a href="#chordsearch">Search by name</a>
-			<a href="#documentation">Library documentation</a>
-			<a href="https://github.com/greird/chordictionaryjs" class="right">Sources</a>
+			<a href="#documentation" class="web-only">Library documentation</a>
+			<a href="https://github.com/greird/chordictionaryjs" class="right web-only">Sources</a>
 		</nav>
 
 		<masthead />
