@@ -45,7 +45,6 @@
 </template>
 
 <script>
-    import {Instrument} from '../assets/vendors/js/chordictionary';
     export default {
         name: 'documentation',
         data() {
@@ -61,7 +60,7 @@
             }
         },
         mounted() {
-            this.demo_guitar = new Instrument('EADGBE', 24, 5, 4);
+            this.demo_guitar = new this.Instrument('EADGBE', 24, 5, 4);
             this.chordGeneration = this.demo_guitar.getChordsList("G");
             this.chordInfo = this.demo_guitar.getChordInfo('131211');
             this.numberOfChordsFound = this.chordGeneration.chordList.length;

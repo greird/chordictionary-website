@@ -32,7 +32,6 @@
 <script>
 	import searchform from './searchform.vue'
 	import chordinfo from './chordinfo.vue'
-	import {Instrument} from '../assets/vendors/js/chordictionary';
 
 	export default {
 		name: 'tabsearch',
@@ -57,7 +56,7 @@
 			findTab(inputTab, inputTuning) {
 				// Create new instrument
 				try {
-					this.instrument = new Instrument(inputTuning, 24, 5, 4);
+					this.instrument = new this.Instrument(inputTuning, 24, 5, 4);
 					this.tuning = this.instrument.tuning.join('')
 				} catch (e) {
 					this.message = 'Woops, check your tuning, you sound a bit out of tune!';
