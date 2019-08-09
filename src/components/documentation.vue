@@ -3,7 +3,7 @@
         <h2>Javascript library</h2>
             <p>This website is powered by the ChordictionaryJS library, available on <a href="https://github.com/greird/chordictionaryjs">Github</a>.</p>
             <h3>I. Instrument definition</h3>
-            <code>var guitar = new Chordictionary('EADGBE', 24, 5, 4);</code><br /><br />
+            <code>var guitar = new Instrument('EADGBE', 24, 5, 4);</code><br /><br />
             <pre>{{ demo_guitar }}</pre>
 
             <h3>II. Chord recognition</h3>
@@ -45,9 +45,9 @@
 </template>
 
 <script>
+    import {Instrument} from '../assets/vendors/js/chordictionary';
     export default {
         name: 'documentation',
-        props: ['Chordictionary'], 
         data() {
             return {
                 demo_guitar: '',
@@ -61,7 +61,7 @@
             }
         },
         mounted() {
-            this.demo_guitar = new this.Chordictionary.Instrument('EADGBE', 24, 5, 4);
+            this.demo_guitar = new Instrument('EADGBE', 24, 5, 4);
             this.chordGeneration = this.demo_guitar.getChordsList("G");
             this.chordInfo = this.demo_guitar.getChordInfo('131211');
             this.numberOfChordsFound = this.chordGeneration.chordList.length;

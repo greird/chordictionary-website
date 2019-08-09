@@ -36,6 +36,7 @@
 
 <script>
 	import searchform from './searchform.vue'
+	import {Instrument} from '../assets/vendors/js/chordictionary';
 
 	export default {
 		name: 'chordsearch',
@@ -72,7 +73,7 @@
 			getChord(inputChord, inputTuning) {
 				// Create new instrument
 				try {
-					this.instrument = new this.Chordictionary.Instrument(inputTuning, 24, 5, 4);
+					this.instrument = new Instrument(inputTuning, 24, 5, 4);
 				} catch (e) {
 					this.results.error = 'Woops, check your tuning, you sound a bit out of tune!';
 				}

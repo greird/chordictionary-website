@@ -10,11 +10,11 @@
 
 		<masthead />
 
-		<tabsearch v-bind:Chordictionary="Chordictionary" />
+		<tabsearch />
 
-		<chordsearch v-bind:Chordictionary="Chordictionary" />
+		<chordsearch />
 
-		<documentation v-bind:Chordictionary="Chordictionary" />
+		<documentation />
 
 	</div>
 </template>
@@ -32,11 +32,6 @@
 			tabsearch,
 			chordsearch,
 			documentation
-		}, 
-		data() {
-			return { 
-				Chordictionary: require('./assets/vendors/js/chordictionary.js'), // load ChordictionaryJS lib
-			}
-		},
+		}
 	}
 </script>

@@ -1,8 +1,6 @@
 /**Chordictionary v0.1.0-alpha.2, @license MIT, (c) 2016 Hubert Fauconnier + contributors*/
 
 	"use strict";
-	
-
 
 /**
 * CONSTANTS––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -11,7 +9,7 @@
 		/**
 		* @const {Object} | Wordings (mostly displayed on error)
 		*/
-		export const WORDING = {
+		const WORDING = {
 			croppedChordLayout: "Number of frets does not allow full display of the chord.",
 			failedToConvertTabIntoNotes: "Could not convert the tab into notes.",
 			failedToCalculateFormula: "Could not calculate the formulas.",
@@ -70,7 +68,7 @@
 * PUBLIC METHODS––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 * Theses methods can be called outside this lib.
 */
-		export class Instrument {
+		class Instrument {
 
 			/** Constructor class
 			* @param {String} tuning | Required | The instrument tuning
@@ -953,3 +951,5 @@
 				throw array + " is not an array.";
 			}
 		}
+
+		export { Instrument };
