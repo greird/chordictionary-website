@@ -6,7 +6,7 @@ import './assets/css/chordictionary.css'
 import './assets/css/mobile.css'
 import './assets/vendors/css/chordictionary.min.css' // Tab layout used by the core ChordictionaryJS livrary
 
-import {Instrument} from './assets/vendors/js/chordictionary_es6.min.js';
+import {Instrument} from 'chordictionary';
 
 Vue.config.productionTip = false
 
