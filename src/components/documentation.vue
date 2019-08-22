@@ -64,9 +64,9 @@
             this.chordGeneration = this.demo_guitar.getChordsList("G");
             this.chordInfo = this.demo_guitar.getChordInfo('131211');
             this.numberOfChordsFound = this.chordGeneration.chordList.length;
-            this.tabValidation = this.demo_guitar.isValidTab("x32010");
-            this.tuningValidation = this.demo_guitar.isValidTuning('E#A#D#G#B#E#');
-            this.chordLayout = this.demo_guitar.getChordLayout("C", "x32010");
+            this.tabValidation = this.isValidTab("x32010");
+            this.tuningValidation = this.isValidTuning('E#A#D#G#B#E#');
+            this.chordLayout = this.demo_guitar.getChordLayout("x32010", {name:"C"});
 
             for (var i in this.chordGeneration.chordList) {
               var tagList = "";
@@ -75,7 +75,7 @@
                   if (tagList != "") tagList += ',' + this.chordGeneration.chordList[i].tag[tag];
                   else tagList = this.chordGeneration.chordList[i].tag[tag];
                 }
-                this.commonChords.push(this.demo_guitar.getChordLayout(tagList, this.chordGeneration.chordList[i].tab.join('')));
+                this.commonChords.push(this.demo_guitar.getChordLayout(this.chordGeneration.chordList[i].tab.join(''), { name: tagList }));
               }
             }
         },

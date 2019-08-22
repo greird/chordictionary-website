@@ -38,8 +38,7 @@
 		components: {
 			searchform,
 			chordinfo
-		}, 
-		props: ['Chordictionary'],
+		},
 		data() {
 			return { 
 				instrument: null,
@@ -74,18 +73,18 @@
 							this.message = chordInfo.error;
 							this.chordName = '';
 						} else {
-							this.chordName = chordInfo.name.join(', ');
-							this.chordNotes = chordInfo.notes;
-							this.chordFormulas = chordInfo.formula;
+							this.chordName = chordInfo.chords[0].name;
+							this.chordNotes = chordInfo.notes.join();
+							this.chordFormulas = chordInfo.chords[0].formula;
 							this.message = '';
 						}
 
-						this.chordLayout = this.instrument.getChordLayout(this.chordName, this.tab, this.tuning);
+						this.chordLayout = this.instrument.getChordLayout(this.tab, chordInfo.chords[0]);
 					} else {
 						this.message = 'The tab length should be the same as the tuning.';
 					}
 				} catch (e) {
-					// Do nothing
+					// do nothing
 				}
 			}
 		}

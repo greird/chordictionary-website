@@ -15,8 +15,8 @@
 			<div class="chord-layout chord-small"
 				v-for="chord in simpleChordsList"
 				v-bind:key="chord.id">
-				<div v-if="instrument.getChordLayout(chord.tag.join(', '), chord.tab.join(''))" 
-					v-html="instrument.getChordLayout(chord.tag.join(', '), chord.tab.join(''))"></div>
+				<div v-if="instrument.getChordLayout(chord.tab.join(''))" 
+					v-html="instrument.getChordLayout(chord.tab.join(''), {name: chord.tag.join(', ')})"></div>
 			</div><div class="clear"></div>
 
 			<br /><button v-on:click="simpleChordsOnly = simpleChordsOnly ? false : true;">Toggle complex chords</button>
@@ -25,8 +25,8 @@
 				<div class="chord-layout chord-small"
 					v-for="chord in results.chordList"
 					v-bind:key="chord.id">
-					<div v-if="instrument.getChordLayout(chord.tag.join(', '), chord.tab.join(''))" 
-					v-html="instrument.getChordLayout(chord.tag.join(', '), chord.tab.join(''))"></div>
+					<div v-if="instrument.getChordLayout(chord.tab.join(''))" 
+					v-html="instrument.getChordLayout(chord.tab.join(''), {name: chord.tag.join(', ')})"></div>
 				</div><div class="clear"></div>
 			</div>
 		</div>

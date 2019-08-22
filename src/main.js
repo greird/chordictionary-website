@@ -6,13 +6,15 @@ import './assets/css/chordictionary.css'
 import './assets/css/mobile.css'
 import './assets/vendors/css/chordictionary.min.css' // Tab layout used by the core ChordictionaryJS livrary
 
-import {Instrument} from 'chordictionary';
+import {Instrument, isValidTab, isValidTuning} from 'chordictionary';
 
 Vue.config.productionTip = false
 
 Vue.mixin({
 	methods: {
-		Instrument: Instrument
+		Instrument: Instrument,
+		isValidTab: isValidTab,
+		isValidTuning: isValidTuning
 	}
 })
 
