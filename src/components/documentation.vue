@@ -80,7 +80,7 @@
                   if (tagList != "") tagList += ',' + this.chordGeneration.chordList[i].tag[tag];
                   else tagList = this.chordGeneration.chordList[i].tag[tag];
                 }
-                this.commonChords.push(this.demo_guitar.getChordLayout("x33210", {name: "Fmaj7", notes:[null, "C", "F", "A", "C", "E"]}));
+                this.commonChords.push(this.demo_guitar.getChordLayout(this.chordGeneration.chordList[i].tab.join(''), { name: tagList, notes:['', '', '', '', '', ''] }));
               }
             }
         },
