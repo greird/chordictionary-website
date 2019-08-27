@@ -4,9 +4,9 @@ import App from './App.vue'
 import './assets/css/base.css'
 import './assets/css/chordictionary.css'
 import './assets/css/mobile.css'
-import './assets/vendors/css/chordictionary.min.css' // Tab layout used by the core ChordictionaryJS livrary
 
-import {Instrument, isValidTab, isValidTuning} from 'chordictionary';
+import '../node_modules/chordictionary/build/chordictionary.min.css'
+import {Instrument, isValidTab, isValidTuning} from 'chordictionary'
 
 Vue.config.productionTip = false
 
