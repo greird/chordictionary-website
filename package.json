@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "chordictionary": ">=0.1.0-beta.3",
+    "chordictionary": "^0.1.0-beta.4",
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
