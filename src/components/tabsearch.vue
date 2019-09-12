@@ -12,19 +12,16 @@
 		<p v-if="message">{{ message }}</p>
 
 		<div class="results" v-else>
-			<div class="chord-layout chord-small"
-			v-if="chordLayout"
-			v-html="chordLayout"></div>
-
-			<chordinfo 
-				v-if="chordName && !message"
-				v-bind:chordName="chordName"
-				v-bind:chordTab="tab" 
-				v-bind:chordNotes="chordNotes"
-				v-bind:chordFormulas="chordFormulas"
-				v-bind:chordTuning="tuning"
-				/>
-			<div class="clear"></div>
+			<div v-for="chord in chords" v-bind:key="chord.id">
+				<chordinfo 
+					v-if="chord.name && !message"
+					v-bind:chordLayout="instrument.getChordLayout(tab, chord)"
+					v-bind:chordName="chord.pitch + ' ' + chord.quality"
+					v-bind:chordNotes="chord.notes.filter((item, index) => chord.notes.indexOf(item) === index && item !== 'x').join()"
+					v-bind:chordFormulas="chord.formula.join('-')"
+					/>
+				<div class="clear"></div>
+			</div>
 		</div>
 	</section>
 </template>
@@ -45,10 +42,7 @@
 				message: '',
 				tuning: '',
 				tab: '',
-				chordName: '',
-				chordNotes: '',
-				chordFormulas: '',
-				chordLayout: ''
+				chords: []
 			}
 		},
 		methods: {
@@ -71,15 +65,10 @@
 
 						if (chordInfo.error) {
 							this.message = chordInfo.error;
-							this.chordName = '';
+							this.chords = [];
 						} else {
-							this.chordName = chordInfo.chords[0].name;
-							this.chordNotes = chordInfo.notes.join();
-							this.chordFormulas = chordInfo.chords[0].formula;
-							this.message = '';
+							this.chords = chordInfo.chords;
 						}
-
-						this.chordLayout = this.instrument.getChordLayout(this.tab, chordInfo.chords[0]);
 					} else {
 						this.message = 'The tab length should be the same as the tuning.';
 					}

@@ -55,7 +55,7 @@ input#inputTab, input#inputChord, input#inputTuning {
 
 .results {
 	margin: 50px auto;
-	width: 600px;
+	width: 720px;
 }
 
 .chord-layout {
@@ -64,7 +64,11 @@ input#inputTab, input#inputChord, input#inputTuning {
 	min-height: 100px;
 }
 
-#chordinfo {
+.chord-card {	
+	margin: 20px 0;
+}
+
+.chordinfo {
 	float: left;
 	margin: 20px 0;
 	text-align: left;

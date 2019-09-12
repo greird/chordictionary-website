@@ -1,30 +1,28 @@
 <template>
-<dl id="chordinfo">
-	<dt></dt>
-	<dd>
-		This is a
-		<code>{{ chordName }}</code>
-		chord and its tab notation is
-		<code>{{ chordTab }}</code>
-	</dd>
-	<dd>
-		It contains the following notes
-		<code>{{ chordNotes }}</code>
-	</dd>
-	<dd>
-		Identified formulas are:
-		<code>{{ chordFormulas }}</code>
-	</dd>
-	<dd>
-		Tuning is
-		<code>{{ chordTuning }}</code>
-	</dd>
-</dl>
+	<div class="chord-card">
+		<div class="chord-layout chord-small" v-html="chordLayout"></div>
+
+		<dl class="chordinfo">
+			<dt></dt>
+			<dd>
+				This is a
+				<code>{{ chordName }}</code>
+			</dd>
+			<dd>
+				It contains the following notes
+				<code>{{ chordNotes }}</code>
+			</dd>
+			<dd>
+				Chord formula is:
+				<code>{{ chordFormulas }}</code>
+			</dd>
+		</dl>
+	</div>
 </template>
 
 <script>
 	export default {
 		name: 'chordinfo',
-		props: ['message', 'chordName', 'chordTab', 'chordNotes', 'chordFormulas', 'chordTuning']
+		props: ['message', 'chordName', 'chordTab', 'chordNotes', 'chordFormulas', 'chordTuning', 'chordLayout']
 	}
 </script>
