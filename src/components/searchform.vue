@@ -45,23 +45,45 @@
 					GDAE: 'Violin'
 				},
 				inputChord: '',
-				inputTab: '',
-				inputTuning: ''
+				inputTab: this.$route.params.tab || '',
+				inputTuning: this.$route.params.tuning || ''
 			}
 		}, 
 		methods: {
 			submitForm() {
 				if (!this.inputTuning) this.inputTuning = 'EADGBE';
-				if (this.showTabInput) this.$emit('newtab', this.inputTab, this.inputTuning);
+				if (this.showTabInput) {
+					this.$emit('newtab', this.inputTab, this.inputTuning);
+					location.hash = '/tab/' + this.inputTab + '/tuning/' + this.inputTuning
+				}
 				if (this.showChordInput) this.$emit('newchord', this.inputChord, this.inputTuning);
 			}
-		},
+		},/* Removing autofocus on form input
 		directives: {
 			focus: {
 				// directive definition
 				inserted: function (el) {
 					el.focus()
 				}
+			}
+		},*/
+		mounted:
+			function() {
+				if (this.$route.params.tab) {
+					this.submitForm();
+					let tabHash = this.$route.path
+					location.hash = 'tabsearch';
+					location.hash = tabHash;
+				}
+			},
+		watch: {
+			$route() {
+				this.inputTab = this.$route.params.tab || '';
+				this.inputTuning = this.$route.params.tuning || '';
+				this.submitForm();
+				let tabHash = this.$route.path
+				location.hash = 'tabsearch';
+				location.hash = tabHash;
 			}
 		}
 	}

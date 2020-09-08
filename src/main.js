@@ -1,5 +1,8 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
+
+Vue.use(VueRouter)
 
 import './assets/css/base.css'
 import './assets/css/chordictionary.css'
@@ -7,6 +10,8 @@ import './assets/css/mobile.css'
 
 import '../node_modules/chordictionary/build/chordictionary.min.css'
 import {Instrument, isValidTab, isValidTuning} from 'chordictionary'
+
+import tabsearch from './components/tabsearch.vue'
 
 Vue.config.productionTip = false
 
@@ -18,9 +23,24 @@ Vue.mixin({
 	}
 })
 
+const router = new VueRouter({
+	routes: [
+		{ path: '/:tab', component: tabsearch },
+		{ path: '/tab/:tab', component: tabsearch },
+		{ path: '/tab/:tab/tuning/:tuning', component: tabsearch }
+	],
+	scrollBehavior: function (to) {
+		if (to.hash) {
+			return {
+				selector: to.hash
+			}
+		}
+	}
+})
+
 new Vue({
 	render: h => h(App),
-	created() {
+	beforeMount() {
 		window.onload = setCanvaSize;
 		window.addEventListener('resize', setCanvaSize);
 		function setCanvaSize() {
@@ -39,5 +59,6 @@ new Vue({
 				else slide[i].style.minHeight = browser.height + 'px';
 			}
 		}
-	} 
+	},
+	router
 }).$mount('#app')

@@ -40,8 +40,8 @@
 			return { 
 				instrument: null,
 				message: '',
-				tuning: '',
-				tab: '',
+				tuning: this.$route.params.tuning || '',
+				tab: this.$route.params.tab || '',
 				chords: []
 			}
 		},
