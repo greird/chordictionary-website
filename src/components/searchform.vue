@@ -54,7 +54,7 @@
 				if (!this.inputTuning) this.inputTuning = 'EADGBE';
 				if (this.showTabInput) {
 					this.$emit('newtab', this.inputTab, this.inputTuning);
-					location.hash = '/tab/' + this.inputTab + '/tuning/' + this.inputTuning
+					location.hash = '/' + this.inputTab + '/' + this.inputTuning
 				}
 				if (this.showChordInput) this.$emit('newchord', this.inputChord, this.inputTuning);
 			}

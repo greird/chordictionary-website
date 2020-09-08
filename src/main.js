@@ -26,6 +26,7 @@ Vue.mixin({
 const router = new VueRouter({
 	routes: [
 		{ path: '/:tab', component: tabsearch },
+		{ path: '/:tab/:tuning', component: tabsearch },
 		{ path: '/tab/:tab', component: tabsearch },
 		{ path: '/tab/:tab/tuning/:tuning', component: tabsearch }
 	],
